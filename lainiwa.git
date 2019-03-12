@@ -1,0 +1,5 @@
+# Put this into /etc/ports/lainiwa.git
+
+NAME=lainiwa
+URL=https://github.com/lainiwa/crux-ports
+BRANCH=master
