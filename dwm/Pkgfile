@@ -1,0 +1,20 @@
+# Description: dynamic window manager, customized
+# URL:         https://dwm.suckless.org/
+# Maintainer:  Lain Iwakura
+# Depends on:  xorg-libxft xorg-libxinerama
+
+name=dwm
+version=6.2
+release=1
+source=("${name}-${version}")
+
+build () {
+    cd "${name}-${version}"
+
+    if [ -f "${PKGMK_ROOT}/config.h" ]; then
+            cp "${PKGMK_ROOT}/config.h" .
+    fi
+
+    make CC='gcc' X11INC='/usr/include'
+    make DESTDIR="${PKG}" PREFIX='/usr' install
+}
