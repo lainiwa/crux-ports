@@ -10,7 +10,7 @@ source=("https://geoff.greer.fm/ag/releases/${name}-${version}.tar.gz")
 build () {
     cd "${name}-${version}"
 
-    ./configure
+    ./configure --prefix='/usr'
     make CC=gcc
-    make DESTDIR="${PKG}" PREFIX='/usr' install
+    make DESTDIR="${PKG}" install
 }
