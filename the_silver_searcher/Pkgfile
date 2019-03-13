@@ -8,7 +8,7 @@ release=1
 source=("https://github.com/ggreer/the_silver_searcher/archive/${version}.tar.gz")
 
 build () {
-    cd "${version}"
+    cd "${name}-${version}"
 
     ./configure
     make CC=gcc
