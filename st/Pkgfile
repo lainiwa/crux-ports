@@ -4,7 +4,7 @@
 # Depends on:  xorg-libxext xorg-libxft
 
 name=st
-version=0.8.1
+version=0.8.2
 release=1
 source=("https://dl.suckless.org/st/${name}-${version}.tar.gz")
 
