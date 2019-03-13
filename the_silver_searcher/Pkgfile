@@ -1,0 +1,16 @@
+# Description: a code-searching tool
+# URL:         https://geoff.greer.fm/ag/
+# Maintainer:  Lain Iwakura
+
+name=the_silver_searcher
+version=2.2.0
+release=1
+source=("https://github.com/ggreer/the_silver_searcher/archive/${version}.tar.gz")
+
+build () {
+    cd "${version}"
+
+    ./configure
+    make CC=gcc
+    make DESTDIR="${PKG}" PREFIX='/usr' install
+}
