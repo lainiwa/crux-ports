@@ -1,0 +1,24 @@
+# Description: dynamic window manager, customized
+# URL:         https://dwm.suckless.org/
+# Maintainer:  Lain Iwakura
+# Depends on:  xorg-libxext xorg-libxft
+
+name=st
+version=0.8.1
+release=1
+source=("https://dl.suckless.org/st/${name}-${version}.tar.gz")
+
+build () {
+    cd "${name}-${version}"
+
+    if [ -f "$PKGMK_ROOT/config.h" ]; then
+            cp "$PKGMK_ROOT/config.h" .
+    fi
+
+    make CC=gcc
+    make DESTDIR="${PKG}" PREFIX='/usr' TERMINFO="${PKG}/usr/share/terminfo" install
+
+    # Remove duplicates of files from ncurses
+    rm -f "${PKG}/usr/share/terminfo/s/st"
+    rm -f "${PKG}/usr/share/terminfo/s/st-256color"
+}
