@@ -11,6 +11,6 @@ build () {
     cd "${name}-${version}"
 
     ./configure --prefix='/usr'
-    make CC=gcc
+    make
     make DESTDIR="${PKG}" install
 }
