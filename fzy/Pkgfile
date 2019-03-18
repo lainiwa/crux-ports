@@ -1,0 +1,15 @@
+# Description: a better fuzzy finder
+# URL:         https://github.com/jhawthorn/fzy
+# Maintainer:  Lain Iwakura
+
+name=fzy
+version=1.0
+release=1
+source=("https://github.com/jhawthorn/${name}/releases/download/${version}/${name}-${version}.tar.gz ")
+
+build () {
+    cd "${name}-${version}"
+
+    make
+    make DESTDIR="${PKG}" PREFIX='/usr' install
+}
