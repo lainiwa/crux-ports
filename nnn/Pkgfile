@@ -1,0 +1,15 @@
+# Description: tiny, lightning fast, feature-packed file manager
+# URL:         https://github.com/jarun/nnn
+# Maintainer:  Lain Iwakura
+
+name=nnn
+version=2.3
+release=1
+source=("https://github.com/jarun/${name}/releases/download/v${version}/${name}-v${version}.tar.gz")
+
+build () {
+    cd "${name}-${version}"
+
+    make
+    make DESTDIR="${PKG}" PREFIX='/usr' install
+}
