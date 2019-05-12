@@ -1,5 +1,14 @@
 /* See LICENSE file for copyright and license details. */
 
+
+static char *openurlcmd[] = {
+	"/bin/sh", "-c",
+	// "xurls | dmenu -l 10 -w $WINDOWID | xargs -r open",
+	"tee /home/lain/tmp.log",
+	"externalpipe",
+	NULL
+};
+
 /*
  * appearance
  *
@@ -178,6 +187,7 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
+	{ TERMMOD,              XK_U, 	        externalpipe,   {.v = openurlcmd} },
 };
 
 /*
