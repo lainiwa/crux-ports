@@ -4,13 +4,14 @@
 # Depends on: libconfuse yajl libnl
 
 name=i3status
-version=2.13
+version=2.12
 release=1
 source=("https://github.com/i3/$name/archive/${version}.tar.gz")
 
 build() {
     cd "${name}-${version}"
 
+    ./configure
     make PULSE=0
     make PREFIX=/usr DESTDIR="${PKG}" install
 
