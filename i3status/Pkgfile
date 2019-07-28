@@ -1,0 +1,17 @@
+# Description: Generates status bar to use with i3bar, dzen2 or xmobar
+# URL: https://github.com/i3/i3status
+# Maintainer: Lain Iwakura
+# Depends on: libconfuse yajl libnl
+
+name=i3status
+version=2.13
+release=1
+source=("https://github.com/i3/$name/archive/${version}.tar.gz")
+
+build() {
+    cd "${name}-${version}"
+
+    make PULSE=0
+    make PREFIX=/usr DESTDIR="${PKG}" install
+
+}
